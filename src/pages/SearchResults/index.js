@@ -5,7 +5,7 @@ import { useGif } from "hooks/useGif";
 
 export default function SearchResults({ params }) {
   const { keyword } = params;
-  const { loading, gifs } = useGif({ keyword });
+  const { loading, gifs, setPage } = useGif({ keyword });
 
   /*  const [loading, setLoading] = useState(false);
   const [gifs, setGifs] = useState([]);
@@ -17,6 +17,9 @@ export default function SearchResults({ params }) {
       setLoading(false);
     });
   }, [keyword]);*/
+  const handlerNextPage = () => {
+    setPage((prevPage) => prevPage + 1);
+  };
 
   return loading ? (
     <Spinner />
@@ -24,6 +27,7 @@ export default function SearchResults({ params }) {
     <>
       <h3>{decodeURI(keyword)}</h3>
       <ListOfGif gifs={gifs} />
+      <button onClick={handlerNextPage}> Get next page </button>
     </>
   );
 }
