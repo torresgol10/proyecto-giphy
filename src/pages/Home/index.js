@@ -29,8 +29,9 @@ export default function Home() {
           onChange={handlerChange}
         />
       </form>
-      {loading ? <Spinner /> : <ListOfGif gifs={gifs} />}
-
+      <div className="ListOfGif">
+        {loading ? <Spinner /> : <ListOfGif gifs={gifs} />}
+      </div>
       <LazyTrending />
     </>
   );

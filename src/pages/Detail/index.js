@@ -25,7 +25,7 @@ export default function Detail({ params }) {
   return (
     <div>
       <h1>{gif.title}</h1>
-      <date>Import: {gif.import_datetime}</date>
+      Import: {gif.import_datetime}
       <img src={gif.url} alt="" />
     </div>
   );

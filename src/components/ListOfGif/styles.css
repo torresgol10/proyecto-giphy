@@ -4,7 +4,7 @@
 .ListOfGif {
   column-count: var(--result-columns);
   column-gap: 0.5em;
-  min-height: 100vh;
+  min-height: 1000px;
 }
 
 .ListOfGifs-item {

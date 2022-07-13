@@ -19,7 +19,7 @@ const fromApiResponseToGifs = (apiResponse) => {
 
 export default function getGifs({ keyword = "morty" } = {}) {
   const apiURL = `${API_URL}/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=20&offset=0&rating=G&lang=en`;
-  console.log(apiURL);
+
   return fetch(apiURL)
     .then((response) => response.json())
     .then(fromApiResponseToGifs);
