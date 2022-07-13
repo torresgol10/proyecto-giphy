@@ -1,0 +1,17 @@
+:root {
+  --result-columns: 2;
+}
+.ListOfGif {
+  column-count: var(--result-columns);
+  column-gap: 0.5em;
+  min-height: 100vh;
+}
+
+.ListOfGifs-item {
+  --webkit-column-break-inside: avoid;
+  break-inside: avoid;
+  background-color: #eee;
+  display: inline-block;
+  width: 100%;
+  cursor: pointer;
+}
