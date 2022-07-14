@@ -1,6 +1,7 @@
 .App {
   font-family: sans-serif;
   text-align: center;
+  background-color: #000;
 }
 
 button {
@@ -21,4 +22,10 @@ a {
 
 form {
   margin-bottom: 1.5rem;
+}
+h1,
+h2,
+h3,
+h1 a {
+  color: #fff;
 }
