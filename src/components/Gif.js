@@ -2,10 +2,14 @@ import React from "react";
 import { Link } from "wouter";
 import "./ListOfGif/styles.css";
 
-export default function Gif({ id, title, url, keyword }) {
+function Gif({ id, title, url }) {
   return (
     <Link to={`/gif/${id}`}>
-      <img loading="lazy" className="ListOfGifs-item" src={url} alt="" />
+      <img loading="lazy" className="ListOfGifs-item" src={url} alt={title} />
     </Link>
   );
 }
+
+export default React.memo(Gif, (prevGif, nextGif) => {
+  return prevGif.id === nextGif.id;
+});

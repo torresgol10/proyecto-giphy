@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useLocation } from "wouter";
 import { useGif } from "hooks/useGif";
 import Spinner from "components/Spinner";
@@ -10,9 +10,12 @@ export default function Home() {
   const { loading, gifs } = useGif();
   const [path, push] = useLocation();
 
-  const handlerSubmitFromParent = ({ keyword }) => {
-    push(`/search/${keyword}`);
-  };
+  const handlerSubmitFromParent = useCallback(
+    ({ keyword }) => {
+      push(`/search/${keyword}`);
+    },
+    [push]
+  );
 
   return (
     <>
