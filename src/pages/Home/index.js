@@ -1,5 +1,4 @@
-import React, { useCallback } from "react";
-import { useLocation } from "wouter";
+import React from "react";
 import { useGif } from "hooks/useGif";
 import Spinner from "components/Spinner";
 import ListOfGif from "components/ListOfGif";
@@ -9,19 +8,11 @@ import "./style.css";
 
 export default function Home() {
   const { loading, gifs } = useGif();
-  const [path, push] = useLocation();
-
-  const handlerSubmitFromParent = useCallback(
-    ({ keyword }) => {
-      push(`/search/${keyword}`);
-    },
-    [push]
-  );
 
   return (
     <div className="container">
       <header className="header">
-        <SearchForm handlerSubmit={handlerSubmitFromParent} />
+        <SearchForm />
       </header>
       {loading ? (
         <Spinner />
