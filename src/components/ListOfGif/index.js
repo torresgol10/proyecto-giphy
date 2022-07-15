@@ -1,5 +1,4 @@
-import Gif from "../../components/Gif.js";
-import "./styles.css";
+import Gif from "components/Gif.js";
 
 export default function ListOfGif({ gifs }) {
   return (

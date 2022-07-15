@@ -1,16 +1,20 @@
 import { useEffect, useRef, useState } from "react";
 
-export default function useNearScreen() {
+export default function useNearScreen({ externalRef, once = true } = {}) {
   const [show, setShow] = useState(false);
   const elementRef = useRef();
 
   useEffect(function () {
+    const element = externalRef ? externalRef.current : elementRef.current;
+
     const onChange = (entries, observer) => {
       const el = entries[0];
 
       if (el.isIntersecting) {
         setShow(true);
-        observer.disconnect();
+        once && observer.disconnect();
+      } else {
+        !once && setShow(false);
       }
     };
 
@@ -18,7 +22,7 @@ export default function useNearScreen() {
       rootMargin: "50px"
     });
 
-    observer.observe(elementRef.current);
+    if (element) observer.observe(element);
 
     return () => observer && observer.disconnect();
   });
