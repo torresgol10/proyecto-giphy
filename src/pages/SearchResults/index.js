@@ -5,6 +5,7 @@ import { useGif } from "hooks/useGif";
 import "./styles.css";
 import useNearScreen from "hooks/useNearScreen";
 import debounce from "just-debounce-it";
+import useSEO from "hooks/useSEO";
 
 export default function SearchResults({ params }) {
   const { keyword } = params;
@@ -14,6 +15,8 @@ export default function SearchResults({ params }) {
     externalRef: loading ? null : externalRef,
     once: false
   });
+  const title = gifs ? `${gifs.length} resultado de ${decodeURI(keyword)}` : "";
+  useSEO({ title: title });
 
   const handlerNextPage = () => {
     setPage((prevPage) => prevPage + 1);

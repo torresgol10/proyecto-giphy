@@ -1,7 +1,7 @@
-import { API_KEY } from "./settings";
+import { API_KEY, API_URL } from "./settings";
 
 export default function getSingleGif(id) {
-  const apiURL = `https://api.giphy.com/v1/gifs/${id}?api_key=${API_KEY}`;
+  const apiURL = `${API_URL}/gifs/${id}?api_key=${API_KEY}`;
 
   return fetch(apiURL)
     .then((response) => response.json())
