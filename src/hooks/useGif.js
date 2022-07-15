@@ -24,17 +24,14 @@ export function useGif({ keyword } = { keyword: null }) {
     });
   }, [keyword, keywordToUse, setGifs]);
 
-  useEffect(
-    function () {
-      if (page === INITIAL_PAGE) return;
-      setLoadingNextPage(true);
-      getGifs({ keyword: keywordToUse, page }).then((nextGgifs) => {
-        setGifs((prevGifs) => prevGifs.concat(nextGgifs));
-        setLoadingNextPage(false);
-      });
-    },
-    [keywordToUse, page, setGifs]
-  );
+  useEffect(() => {
+    if (page === INITIAL_PAGE) return;
+    setLoadingNextPage(true);
+    getGifs({ keyword: keywordToUse, page }).then((nextGgifs) => {
+      setGifs((prevGifs) => prevGifs.concat(nextGgifs));
+      setLoadingNextPage(false);
+    });
+  }, [keywordToUse, page, setGifs]);
 
   return { loading, loadingNextPage, gifs, setPage };
 }

@@ -6,6 +6,7 @@ import "./styles.css";
 import useNearScreen from "hooks/useNearScreen";
 import debounce from "just-debounce-it";
 import useSEO from "hooks/useSEO";
+import SearchForm from "components/SearchForm";
 
 export default function SearchResults({ params }) {
   const { keyword } = params;
@@ -35,6 +36,10 @@ export default function SearchResults({ params }) {
     <Spinner />
   ) : (
     <>
+      <header className="header">
+        <SearchForm />
+      </header>
+
       <h3>{decodeURI(keyword)}</h3>
       <div className="ListOfGif">
         <ListOfGif gifs={gifs} />

@@ -1,12 +1,14 @@
 import React, { useState } from "react";
+import { useLocation } from "wouter";
 import "./style.css";
 
-function SearchForm({ handlerSubmit: handlerSubmitFromParent }) {
+function SearchForm() {
   const [keyword, setKeyword] = useState("");
+  const [path, push] = useLocation();
 
   const handlerSubmit = (e) => {
     e.preventDefault();
-    handlerSubmitFromParent({ keyword });
+    push(`/search/${keyword}`);
   };
 
   const handlerChange = (e) => {
