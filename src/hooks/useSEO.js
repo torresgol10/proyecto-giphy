@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 export default function useSEO({ description, title }) {
   const prevTitle = useRef(document.title);
   const prevDescription = useRef(
-    document.querySelector("meta[name='description']").getAttribute("content")
+    document.querySelector("meta[name='description']")?.getAttribute("content")
   );
 
   useEffect(() => {
@@ -21,6 +21,6 @@ export default function useSEO({ description, title }) {
       metaDescription.setAttribute("content", description);
     }
 
-    return () => metaDescription.setAttribute("content", previousDescription);
+    return () => metaDescription?.setAttribute("content", previousDescription);
   }, [description]);
 }
