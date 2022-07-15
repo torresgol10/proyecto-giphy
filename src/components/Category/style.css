@@ -1,10 +1,9 @@
 .trending {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: block;
+  text-align: center;
 }
 
 .trending li a {
-  margin-right: 1rem;
+  margin: 1rem;
   color: #fff;
 }

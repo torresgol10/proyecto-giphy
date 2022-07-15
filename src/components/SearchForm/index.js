@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./style.css";
 
 function SearchForm({ handlerSubmit: handlerSubmitFromParent }) {
   const [keyword, setKeyword] = useState("");
@@ -13,13 +14,14 @@ function SearchForm({ handlerSubmit: handlerSubmitFromParent }) {
   };
 
   return (
-    <form onSubmit={handlerSubmit}>
+    <form onSubmit={handlerSubmit} className="formSearch">
       <input
         placeholder="Busca amigo"
         type="text"
         value={keyword}
         onChange={handlerChange}
       />
+      <button>Search</button>
     </form>
   );
 }

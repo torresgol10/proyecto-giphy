@@ -5,6 +5,7 @@ import Spinner from "components/Spinner";
 import ListOfGif from "components/ListOfGif";
 import LazyTrending from "components/TrendingSearches";
 import SearchForm from "components/SearchForm";
+import "./style.css";
 
 export default function Home() {
   const { loading, gifs } = useGif();
@@ -18,11 +19,25 @@ export default function Home() {
   );
 
   return (
-    <>
-      <SearchForm handlerSubmit={handlerSubmitFromParent} />
-      {loading ? <Spinner /> : <ListOfGif gifs={gifs} />}
-
-      <LazyTrending />
-    </>
+    <div className="container">
+      <header className="header">
+        <SearchForm handlerSubmit={handlerSubmitFromParent} />
+      </header>
+      {loading ? (
+        <Spinner />
+      ) : (
+        <>
+          <main className="main">
+            <h2>Ultimos Gifs buscado</h2>
+            <div className="ListOfGif">
+              <ListOfGif gifs={gifs} />
+            </div>
+          </main>
+          <sidebar className="sidebar">
+            <LazyTrending />
+          </sidebar>
+        </>
+      )}
+    </div>
   );
 }
