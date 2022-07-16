@@ -4,7 +4,7 @@ import getGifs from "../service/getGift";
 
 const INITIAL_PAGE = 0;
 
-export function useGif({ keyword } = { keyword: null }) {
+export function useGif({ keyword, rating } = { keyword: null }) {
   const [loading, setLoading] = useState(false);
   const [loadingNextPage, setLoadingNextPage] = useState(false);
 
@@ -17,21 +17,22 @@ export function useGif({ keyword } = { keyword: null }) {
   useEffect(() => {
     setLoading(true);
 
-    getGifs({ keyword: keywordToUse }).then((gifs) => {
+    getGifs({ keyword: keywordToUse, rating }).then((gifs) => {
       setGifs(gifs);
       setLoading(false);
       localStorage.setItem("lastKeyword", keyword);
     });
-  }, [keyword, keywordToUse, setGifs]);
+  }, [keyword, keywordToUse, setGifs, rating]);
 
+  /*Esto es para la paginación*/
   useEffect(() => {
     if (page === INITIAL_PAGE) return;
     setLoadingNextPage(true);
-    getGifs({ keyword: keywordToUse, page }).then((nextGgifs) => {
+    getGifs({ keyword: keywordToUse, page, rating }).then((nextGgifs) => {
       setGifs((prevGifs) => prevGifs.concat(nextGgifs));
       setLoadingNextPage(false);
     });
   }, [keywordToUse, page, setGifs]);
 
-  return { loading, loadingNextPage, gifs, setPage };
+  return { loading, loadingNextPage, gifs, setPage, rating };
 }

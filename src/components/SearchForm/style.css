@@ -2,6 +2,9 @@
   border-radius: 0;
   padding: 10px;
 }
+.formSearch select {
+  padding: 10px;
+}
 
 .formSearch button {
   padding: 10px;

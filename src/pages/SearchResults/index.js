@@ -9,8 +9,8 @@ import useSEO from "hooks/useSEO";
 import SearchForm from "components/SearchForm";
 
 export default function SearchResults({ params }) {
-  const { keyword } = params;
-  const { loading, gifs, setPage } = useGif({ keyword });
+  const { keyword, rating = "g" } = params;
+  const { loading, gifs, setPage } = useGif({ keyword, rating });
   const externalRef = useRef();
   const { show } = useNearScreen({
     externalRef: loading ? null : externalRef,
@@ -37,7 +37,7 @@ export default function SearchResults({ params }) {
   ) : (
     <>
       <header className="header">
-        <SearchForm />
+        <SearchForm initialKeyword={keyword} initialRating={rating} />
       </header>
 
       <h3>{decodeURI(keyword)}</h3>
