@@ -1,4 +1,4 @@
-import Gif from "components/Gif.js";
+import Gif from "components/Gif";
 
 export default function ListOfGif({ gifs }) {
   return (

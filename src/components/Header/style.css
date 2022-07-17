@@ -1,0 +1,11 @@
+.gf-header{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.gf-header a{
+    color: #fff;
+    border: 1px solid #fff;
+    margin: 1rem;
+    padding: 1rem;
+}

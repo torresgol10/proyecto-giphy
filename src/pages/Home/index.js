@@ -24,9 +24,9 @@ export default function Home() {
               <ListOfGif gifs={gifs} />
             </div>
           </main>
-          <sidebar className="sidebar">
+          <div className="sidebar">
             <LazyTrending />
-          </sidebar>
+          </div>
         </>
       )}
     </div>
