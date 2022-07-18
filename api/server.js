@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import session from "express-session";
 import 'dotenv/config'
 
@@ -20,6 +21,7 @@ const port = DEFAULT_PORT;
 const router = express.Router();
 
 app.use(bodyParser.json());
+app.use(cors());
 
 app.use(session({
   "secret": 'keyboard cat',

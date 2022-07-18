@@ -49,7 +49,7 @@ export const postFav = async (req, res) => {
     username,
   })
   res.status(201)
-  res.send({ "favs": favs[username] })
+  res.send({favs: favs[username]})
 }
 
 export const postLogin = async (req, res) => {
@@ -70,7 +70,7 @@ export const postLogin = async (req, res) => {
     };
     const jwt = jwtToken.sign(
       payload,
-      process.env.JWT_KEY || '',
+      process.env.JWT_KEY,
       header
     )
     res.status(201)

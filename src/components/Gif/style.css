@@ -1,0 +1,14 @@
+.Gif{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid green;
+}
+
+.Gif-buttons{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    margin: 1rem;
+}

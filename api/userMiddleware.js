@@ -10,7 +10,7 @@ const userMiddleware = async (req, res, next) => {
   if (!jwt) {
     jwt = req.headers.authorization
   }
-  //console.log('using: ', {jwt})
+  console.log('using: ', {jwt})
 
   // If JWT is not available, go to next middleware
   if (jwt) {
