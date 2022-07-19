@@ -7,6 +7,10 @@ html {
 button {
   size: 28px;
 }
+button[disabled] {
+  opacity: .3;
+  pointer-events: none;
+}
 
 .App a {
   display: block;

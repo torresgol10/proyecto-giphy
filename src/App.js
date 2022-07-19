@@ -7,9 +7,10 @@ import { UserContextProvider } from "context/userContext";
 import Detail from "pages/Detail";
 import Home from "pages/Home";
 import SearchResults from "pages/SearchResults";
-import Login from "pages/LoginPage";
+import LoginPage from "pages/LoginPage";
 
 import "./styles.css";
+import RegisterPages from "pages/Register";
 
 export default function App() {
   return (
@@ -24,7 +25,8 @@ export default function App() {
             <Route path="/" component={Home} />
             <Route path="/search/:keyword/:rating?" component={SearchResults} />
             <Route path="/gif/:id" component={Detail} />
-            <Route path="/login" component={Login} />
+            <Route path="/login" component={LoginPage} />
+            <Route path="/register" component={RegisterPages} />
           </GifsContextProvider>
         </section>
       </div>

@@ -5,21 +5,24 @@ import "./style.css";
 
 export default function Header({ }) {
     const { isLogged, logout } = useUser();
-    const [ match ] = useRoute("/login")
+    const [match] = useRoute("/login")
 
     const handlerClick = (e) => {
         e.preventDefault();
         logout();
     }
 
-    const renderLoginButtons = ({isLogged}) => {
+    const renderLoginButtons = ({ isLogged }) => {
         return isLogged ?
-        <Link href="#" onClick={handlerClick}>Logout</Link>
-        : <Link to="/login">Login</Link>
+            <Link href="#" onClick={handlerClick}>Logout</Link>
+            : <>
+                <Link to="/login">Login</Link>
+                <Link to="/register">Register</Link>
+            </>
     }
 
-    const content = match ? null : renderLoginButtons({isLogged});
-        
+    const content = match ? null : renderLoginButtons({ isLogged });
+
     return (
         <header className="gf-header">
             {content}
