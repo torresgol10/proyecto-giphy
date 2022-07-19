@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import registerService from 'service/register';
 
@@ -17,13 +18,13 @@ const validateFields = (values) => {
     return error;
 }
 
-const handlerSubmit = (values, { setFieldError }) => {
-    return registerService(values).catch((error) => {
-        setFieldError('username', 'El usuario ya existe');
-    });
-}
-
 export default function Register() {
+    const [registered, setRegistered] = useState(false);
+
+    if(registered){
+        return <h2>Congratulations ! You´ve been successfully registeres!</h2>
+    }
+
 
     return (
         <div>
@@ -31,7 +32,13 @@ export default function Register() {
             <Formik
                 initialValues={{ username: '', password: '' }}
                 validate={validateFields}
-                onSubmit={handlerSubmit}
+                onSubmit={(values, { setFieldError }) => {
+                    return registerService(values)
+                    .then(() => setRegistered(true))
+                    .catch((error) => {
+                        setFieldError('username', 'El usuario ya existe');
+                    });
+                }}
             >
                 {
                     ({ isSubmitting }) =>
