@@ -20,8 +20,8 @@ export default function useUser() {
     }, [setJWT]);
 
     const logout = useCallback(() => {
-        localStorage.setItem("jwt", null);
-        setJWT(null);
+        localStorage.setItem("jwt", '');
+        setJWT('');
     }, [setJWT]);
 
     return {

@@ -7,7 +7,7 @@ import { UserContextProvider } from "context/userContext";
 import Detail from "pages/Detail";
 import Home from "pages/Home";
 import SearchResults from "pages/SearchResults";
-import Login from "pages/Login";
+import Login from "pages/LoginPage";
 
 import "./styles.css";
 

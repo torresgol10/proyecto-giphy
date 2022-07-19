@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { useLocation } from "wouter";
 import useUser from "hooks/useUser";
+import "./style.css";
 
 export default function Login() {
     const [username, setUsername] = useState("");
@@ -21,10 +22,10 @@ export default function Login() {
 
     return (
         <>
-            <h1>Login</h1>
-            <form onSubmit={handleSubmit}>
+            <form className="form" onSubmit={handleSubmit}>
+                <label for="username">Username</label>
                 <input placeholder="username" type="text" name="username" value={username} onChange={e => setUsername(e.target.value)} />
-
+                <label for="password">Password</label>
                 <input placeholder="password" type="password" name="password" value={password} onChange={e => setPassword(e.target.value)} />
 
                 <button type="submit">Login</button>
