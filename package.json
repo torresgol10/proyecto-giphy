@@ -5,6 +5,8 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
     "@hookform/error-message": "^2.0.0",
     "@testing-library/jest-dom": "4.2.4",
     "@testing-library/react": "10.0.4",
@@ -21,8 +23,7 @@
     "wouter": "2.7.5"
   },
   "devDependencies": {
-    "@babel/runtime": "7.13.8",
-    "typescript": "4.1.3"
+    "@babel/runtime": "7.13.8"
   },
   "scripts": {
     "start": "react-scripts start",

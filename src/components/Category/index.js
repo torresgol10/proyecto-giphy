@@ -1,17 +1,23 @@
-import { Link } from "wouter";
-import "./style.css";
+import {
+  CategoryTitle,
+  CategoryList,
+  CategoryListItem,
+  CategoryListItemLink
+} from "./styles";
 
-export default function Category({ name, options }) {
+export default function Category({ name, options = [] }) {
   return (
-    <>
-      <h2 className="text-center">{name}</h2>
-      <ul className="trending">
-        {options.map((popularGif) => (
-          <li key={popularGif}>
-            <Link to={`/search/${popularGif}`}>Gift de {popularGif}</Link>
-          </li>
+    <section>
+      <CategoryTitle>{name}</CategoryTitle>
+      <CategoryList>
+        {options.map((singleOption, index) => (
+          <CategoryListItem key={singleOption} index={index}>
+            <CategoryListItemLink to={`/search/${singleOption}`}>
+              {singleOption}
+            </CategoryListItemLink>
+          </CategoryListItem>
         ))}
-      </ul>
-    </>
+      </CategoryList>
+    </section>
   );
 }

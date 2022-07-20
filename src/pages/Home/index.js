@@ -4,28 +4,29 @@ import Spinner from "components/Spinner";
 import ListOfGif from "components/ListOfGif";
 import LazyTrending from "components/TrendingSearches";
 import SearchForm from "components/SearchForm";
-import "./style.css";
 
 export default function Home() {
   const { loading, gifs } = useGif();
 
   return (
     <div className="container">
-      <header className="header">
+      <header className="o-header">
         <SearchForm />
       </header>
       {loading ? (
         <Spinner />
       ) : (
         <>
-          <main className="main">
-            <h2>Ultimos Gifs buscado</h2>
-            <div className="ListOfGif">
-              <ListOfGif gifs={gifs} />
+          <div className="App-wrapper">
+            <div className="App-main">
+              <div className="App-results">
+                <h3 className="App-title">Última búsqueda</h3>
+                <ListOfGif gifs={gifs} />
+              </div>                    
+              <div className="App-category">
+                <LazyTrending />
+              </div>
             </div>
-          </main>
-          <div className="sidebar">
-            <LazyTrending />
           </div>
         </>
       )}

@@ -1,3 +1,4 @@
+import Button from "components/Button";
 import React from "react";
 import { useLocation } from "wouter";
 import useForm from "./hook";
@@ -43,9 +44,7 @@ function SearchForm({ initialKeyword = "", initialRating = RATING[0] }) {
           <option key={rating}>{rating}</option>
         ))}
       </select>
-
-      <button>Search</button>
-      <small style={{ color: "#fff" }}>{times}</small>
+      <Button>Search</Button>
     </form>
   );
 }
